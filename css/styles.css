@@ -46,8 +46,10 @@ body {
 
 .viz-block {
     max-width: 960px;
-    margin: 0 auto;
-    padding: 0 12px;
+    margin: 24px auto;
+    padding: 20px 12px;
+    background: #46516a;
+    border-radius: 10px;
 }
 
 .viz-placeholder, #vis1-root, #vis2-root, #vis5-root {
@@ -121,4 +123,14 @@ h1, h2, .caption {
 }
 .legend .swatch {
     stroke: #aaa;
+}
+
+.scroll-bg {
+    background-image:
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("../img/map.webp");
+    background-repeat: no-repeat;
+    background-size: 1500px;
+    background-position: center;
+    background-attachment: fixed;
 }
