@@ -167,11 +167,13 @@ class Vis3 {
 
         const nodeEnter = node.enter()
             .append("g")
-            .attr("class", "node");
+            .attr("class", "node")
+            .attr("transform", `translate(${centerX}, ${centerY})`);
 
         nodeEnter.append("circle")
             .attr("stroke", "#222")
             .attr("stroke-width", 2)
+            .attr("r", 0)
             .on("mouseenter", function (event, d) {
                 const statesHTML = d.states.slice(0, 12).map(s =>
                     `<div style = "display:flex;justify-content:space-between;gap:12px;">
@@ -191,16 +193,20 @@ class Vis3 {
             .on("mouseleave", () => vis.tooltip.style("opacity", 0));
 
         const nodeAll = nodeEnter.merge(node);
+        nodeAll.transition()
+            .duration(1000)
+            .attr("transform", d => `translate(${POS[d.region][0]}, ${POS[d.region][1]})`);
         nodeAll.select("circle")
+            .transition()
+            .duration(1000)
             .attr("r", d=> vis.rScale(d.share))
             .attr("fill", d=> vis.colorScale(d.prevPct));
-
         nodeEnter.append("text")
             .attr("class", "label")
             .attr("text-anchor", "middle")
             .attr("dy", ".35em")
             .style("pointer-events", "none");
-        nodeAll.attr("transform", d => `translate(${POS[d.region][0]}, ${POS[d.region][1]})`);
+
         nodeAll.select("text").text(d => d.region);
         node.exit().remove();
 
