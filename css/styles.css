@@ -127,10 +127,10 @@ h1, h2, .caption {
 
 .scroll-bg {
     background-image:
-            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-            url("../img/map.webp");
+            linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url("../img/brain.jpg");
     background-repeat: no-repeat;
-    background-size: 1500px;
+    background-size: 1000px;
     background-position: center;
     background-attachment: fixed;
 }
