@@ -20,7 +20,7 @@
     const x0 = d3.scaleBand().paddingInner(0.2);
     const x1 = d3.scaleBand().padding(0.15);
     const y = d3.scaleLinear();
-    const color = d3.scaleOrdinal().domain(seriesKeys).range(["#6ea8fe", "#9ad0f5"]);
+    const color = d3.scaleOrdinal().domain(seriesKeys).range(["#dc7a8c", "#d80e0e"]);
 
     const xAxis = d3.axisBottom(x0).tickSizeOuter(0);
     const yAxis = d3.axisLeft(y).ticks(6).tickSizeOuter(0);
@@ -53,7 +53,7 @@
             gy.call(yAxis);
 
             const yLbl = gy.selectAll(".y-label").data(["Count"]);
-            yLbl.enter().append("text").attr("class", "y-label").attr("fill", "#111")
+            yLbl.enter().append("text").attr("class", "y-label").attr("fill", "white")
                 .attr("text-anchor", "end").attr("x", -10).attr("y", -10).text(d => d);
 
             const raceGroups = barsG.selectAll(".race-group").data(data, d => d.Race);
@@ -94,7 +94,7 @@
                 .attr("width", 12).attr("height", 12).attr("rx", 2)
                 .attr("ry", 2).attr("fill", d => color(d));
 
-            legendEnter.append("text").attr("x", 18).attr("y", 10).attr("fill", "#111").text(d => d);
+            legendEnter.append("text").attr("x", 18).attr("y", 10).attr("fill", "white").text(d => d);
 
             const legendPadding = 14;
             let accX = 0;

@@ -24,9 +24,6 @@ function render(data) {
 
     const svg = d3.select(TARGET).append("svg").attr("width", width).attr("height", height);
 
-    svg.append("text").attr("x", (width - margin.right) / 2).attr("y", margin.top - 8).attr("text-anchor", "middle")
-        .style("font-size", "22px").style("font-weight", "700").text("Global Brain Disease Distribution");
-
     const g = svg.append("g").attr("transform", `translate(${(width - margin.right) / 2}, ${height / 2 + 8})`);
 
     const color = d3.scaleOrdinal().domain(data.map(d => d.Disease)).range(d3.schemeSet2);
