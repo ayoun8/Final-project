@@ -155,8 +155,8 @@ function init() {
                 tooltip.innerHTML =
                     "Age: " + a0 + "–" + (a0 + agg.bins.age) + "<br>" +
                     "PHQ-9: " + p0 + "–" + (p0 + agg.bins.phq) + "<br>" +
-                    "n = " + cell.n + "<br>" +
-                    "<b>" + d3.format(".1%")(cell.prob) + "</b> migraine";
+                    "Number of respondents = " + cell.n + "<br>" +
+                    "<b>" + d3.format(".1%")(cell.prob) + "</b> probability respondent had chronic migraines";
             } else {
                 tooltip.style.display = "none";
             }
@@ -265,7 +265,7 @@ function drawAxisLabels(overlaySelector, M) {
         .attr("class", "y-axis-label")
         .attr("text-anchor", "middle")
         .attr("transform", `translate(${20}, ${M.top + (HEIGHT - M.top - M.bottom) / 2}) rotate(-90)`)
-        .text("PHQ-9 score");
+        .text("Mental Unwellness score (PHQ-9)");
 }
 
 
