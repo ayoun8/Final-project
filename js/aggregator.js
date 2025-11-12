@@ -1,6 +1,6 @@
 (function () {
     let GridAggregator = function() {
-        this.bins = { age: 5, phq: 2 };
+        this.bins = { age: 2, phq: 1 };
         this.xDomain = [0, 100];
         this.yDomain = [0, 27];
         this.FIELDS = {
@@ -34,8 +34,37 @@
                 }
             }
 
-            if (f.marital && d[this.FIELDS.marital] !== f.marital) return false;
-            return true;
+            GridAggregator.prototype.applyFilters = function(raw, f) {
+                return raw.filter(d => {
+                    if (f.gender && d[this.FIELDS.gender] !== f.gender) return false;
+
+                    if (f.smoker) {
+                        const val = d[this.FIELDS.smoker];
+                        if (f.smoker === "Yes") {
+                            if (val === "Not at all") return false;
+                        } else if (f.smoker === "No") {
+                            if (val !== "Not at all") return false;
+                        } else {
+                            if (val !== f.smoker) return false;
+                        }
+                    }
+
+                    // ---- NEW marital logic ----
+                    if (f.marital) {
+                        const m = d[this.FIELDS.marital];  // raw MaritalStatus from CSV
+                        if (f.marital === "Unmarried") {
+                            // keep ONLY rows where marital is blank / missing
+                            // (null, undefined, or empty/whitespace string)
+                            if (m != null && m.toString().trim() !== "") return false;
+                        } else {
+                            // normal case: must exactly match the selected status
+                            if (m !== f.marital) return false;
+                        }
+                    }
+
+                    return true;
+                });
+            };
         });
     };
 
