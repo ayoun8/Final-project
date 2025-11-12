@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CS 4460 Visualization - Brain Conditions </title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <section class="viz-block">
+        <h1> Brain Conditions Visualization Project</h1>
+        <div>
+        <p> On this page we are going to explore several common brain diseases.
+            Brain diseases are conditions that affect the brain, spinal cord, or nerves
+            and disrupt how we think, move, feel, and function. They range from sudden events
+            like stroke to chronic, progressive illnesses such as
+            Alzheimer’s disease, Parkinson’s disease, multiple sclerosis, and epilepsy, as well
+            as infections, tumors, traumatic brain injury, and headache
+            disorders. Together, these conditions push a major global health burden across all ages,
+            contributing to disability, mortality, and long-term caregiving needs. There are
+            several factors that contribute to these brain diseases, and we are going to explore them
+            throughout this page.
+        </p>
+        </div>
+    </section>
+
+
+    <section id="vis1" class="viz-block">
+        <h2>Brain Diseases Type Breakdown</h2>
+        <div id="vis1-root" class="viz-placeholder"></div>
+        <p class="caption">Global Brain Disease Breakdown Pie Chart</p>
+        <p> This chart illustrates the global distribution of major brain diseases by type.
+            Migraines account for nearly half of all reported neurological conditions, emphasizing
+            their widespread prevalence across populations. Alzheimer’s disease and dementia represent
+            the second-largest share, reflecting the growing impact of aging populations worldwide.
+            Stroke and epilepsy follow, contributing significantly to neurological disability and
+            mortality. Less common disorders such as multiple sclerosis, Parkinson’s disease, and
+            other neurological conditions together make up a small but important portion of the
+            overall disease burden. We will explore some of these diseases more in this page and
+            look at demographics associated with them.
+        </p>
+    </section>
+
+    <section id="vis2" class="viz-block">
+        <h2>Alzheimer's Distribution by Gender and Race</h2>
+        <div id="vis2-root" class="viz-placeholder"></div>
+        <p class="caption">Alzheimer's Race and Gender Bar Graph</p>
+
+        <p> This chart illustrates the distribution of Alzheimer’s disease cases by gender and race.
+            White females represent the largest proportion of reported cases, highlighting both the
+            higher prevalence among women and the demographic concentration in White populations.
+            Black or African-American individuals show a smaller but notable share, consistent with
+            studies suggesting varying diagnosis rates and access to care across racial groups. Male
+            cases are significantly lower across all racial categories, reflecting the generally
+            higher Alzheimer’s incidence in females. The visualization underscores the need for
+            equitable diagnostic practices and inclusive research to better understand how gender and
+            race influence Alzheimer’s risk and outcomes.
+        </p>
+    </section>
+
+
+    <section id="vis3" class="viz-block">
+        <h2>Regional Distribution of Alzheimer's</h2>
+        <div id="vis3-root" class="viz-placeholder" style="height:420px"></div>
+        <p class="caption">The chart shows the distribution of Alzheimer's among US regions. Bubble area shows Alzheimer cases in thousands. </p>
+
+        <p> This visualization highlights the regional distribution of Alzheimer’s disease across the
+            United States. The South shows the highest prevalence and number of cases, represented by the
+            largest and darkest red bubble, suggesting both a higher rate and greater population impact.
+            The Northeast also has relatively elevated prevalence, while the Midwest and West show lower
+            rates, indicated by lighter yellow bubbles. The color gradient from yellow to red helps convey
+            variations in Alzheimer’s prevalence percentages among the regions. Overall, the chart emphasizes
+            how geographic and demographic factors may influence Alzheimer’s distribution patterns across the
+            country. The relative sizes reflect the respective total cases.
+        </p>
+    </section>
+
+
+    <section id="vis5" class="viz-block">
+        <h2>MS Global Distribution</h2>
+        <div class="container">
+            <div class="row">
+                <div class="form-group" style="text-align: center">
+                    <select class="form-control" id="case-choice">
+                        <option value="Prevalence">Prevalent Cases</option>
+                        <option value="Incidence">Incident Cases</option>
+                        <option value="MeanAgeofOnset">Mean Age of Onset</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div id="vis5-root" class="viz-placeholder" style="height:500px; width: 100%"></div>
+                </div>
+            </div>
+            <div class="row" style="text-align: center">
+                <input id="time-slider" class="slider" type="range" min="0" max="2" step="1" value="0" style="width: 50%">
+                <br>
+                <span id="time-slider-label" class="slider-label">Year: 2008</span>
+            </div>
+        </div>
+        <p>This map shows the MS distribution around the world</p>
+
+        <p>
+            This world map illustrates the global distribution of Multiple Sclerosis (MS), with
+            color intensity representing varying prevalence rates across regions. Higher rates of MS
+            are concentrated in North America, Northern Europe, and Australia, indicated by the darker
+            shades of blue. Lower prevalence is seen in regions closer to the equator and in developing
+            countries, such as parts of Africa, South America, and Southeast Asia. This geographical pattern
+            suggests a potential link between latitude, genetics, and environmental factors in influencing MS
+            risk. Overall, the map provides a clear visual comparison of how MS affects populations unevenly
+            across different parts of the world.
+        </p>
+    </section>
+
+
+
+    <section id="vis4" class="viz-block">
+        <h2>Migraines Heatmap</h2>
+        <div id="controls">
+            <label>Gender</label>
+            <select id="gender"><option value="">All</option><option>Male</option><option>Female</option></select>
+
+            <label>Smoker</label>
+            <select id="smoker"><option value="">All</option><option>Yes</option><option>No</option></select>
+
+            <label>Marital</label>
+            <select id="marital">
+                <option value="">All</option>
+                <option>Married</option><option>Divorced</option><option>Widowed</option>
+            </select>
+
+            <button id="reset">Reset Filters</button>
+        </div>
+
+        <div id="chart">
+            <canvas id="heat" width="960" height="600"></canvas>
+            <svg id="overlay" width="960" height="600">
+                <g class="x-axis"></g>
+                <g class="y-axis"></g>
+            </svg>
+        </div>
+        <p>
+            For our last look, we invite you to explore how different lifestyle and demographic factors relate to the
+            number of people experiencing migraines. The data covers U.S. citizens from 2017 to 2023 and includes
+            information about marital status and smoking habits. The visualization compares these factors against
+            age and mental health scores, helping reveal where migraine risk might be highest across different groups.
+
+            The PHQ-9 (Patient Health Questionnaire-9) is a short, 9-question survey used to measure depression
+            severity. Each question corresponds to one of the DSM criteria for major depressive disorder and asks how
+            often a person has experienced certain symptoms over the past two weeks (like little interest or pleasure in
+            doing things, trouble sleeping, or feeling tired).
+            Each item is scored from 0 to 3 for “not at all,” “several days,” “more than half the days,” or “nearly
+            every day”. Giving a total score from 0 to 27.
+            0–4: minimal or no depression
+            5–9: mild
+            10–14: moderate
+            15–19: moderately severe
+            20–27: severe
+        </p>
+        <h2>Preventing Brain Diseases</h2>
+        <p>Based on the charts in our project, it’s clear that demographic factors play a major role
+            in shaping the prevalence of brain conditions. Regional and global patterns reveal that
+            factors such as age distribution, lifestyle, genetics, and healthcare access significantly
+            influence disease rates like Alzheimer’s and Multiple Sclerosis. For instance, older
+            populations in the South and Northeast U.S. show higher Alzheimer’s rates, while MS
+            prevalence is greater in higher-latitude countries with colder climates. These differences
+            highlight how environmental exposure, diet, and socioeconomic conditions intersect with
+            biological risk. Overall, understanding these demographic effects is essential for developing
+            targeted prevention, awareness, and healthcare strategies that address the unique needs of each
+            population.
+        </p>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+    <script src="js/vis1.js"></script>
+    <script src="js/vis2.js"></script>
+    <script src="js/vis3.js"></script>
+    <script src="js/axes.js"></script>
+    <script src="js/heatmap.js"></script>
+    <script src="js/aggregator.js"></script>
+    <script src="js/worldVis.js"></script>
+    <script src="js/MigrainMain.js "></script>
+    <script src="js/worldMain.js"></script>
+    <script src="js/main.js "></script>
+</body>
+</html>
