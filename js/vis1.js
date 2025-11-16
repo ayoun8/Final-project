@@ -35,7 +35,7 @@ function render(data) {
     const tooltip = d3.select("body").append("div").attr("class", "vis1-tooltip").style("position", "absolute")
         .style("pointer-events", "none").style("background", "#fff").style("border", "1px solid #ccc")
         .style("border-radius", "6px").style("padding", "6px 8px").style("box-shadow", "0 2px 10px rgba(0,0,0,0.15)")
-        .style("font-size", "13px").style("opacity", 0);
+        .style("font-size", "13px").style("opacity", 0).style("color", "#000");
 
     const slices = g.selectAll("path.slice").data(pie(data)).join("path").attr("class", "slice")
         .attr("d", arc).attr("fill", d => color(d.data.Disease)).attr("stroke", "white")
