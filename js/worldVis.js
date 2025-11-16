@@ -8,7 +8,7 @@ class WorldVis {
         this.stat = "Prevalence";
         this.year = 2008;
 
-        this.colors = ["#65a5d3", "#4b86ca", "#376ec1", "#0d4791"]
+        this.colors = ["#e88bbd", "#ec5981", "#bd102f", "#810d1a"]
 
         this.initVis();
     }
@@ -52,7 +52,7 @@ class WorldVis {
         vis.svg.append("path")
             .datum({type: "Sphere"})
             .attr("class", "ocean")
-            .attr("fill", "#ecf7ff")
+            .attr("fill", "#7dbeed")
             .attr("d", vis.path);
 
         // Countries
