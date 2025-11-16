@@ -101,6 +101,21 @@ h1, h2, .caption {
     z-index: 1000;
 }
 
+.tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transition: opacity 120ms ease-out;
+    font-size: 12px;
+    color: #111;
+    z-index: 1000;
+}
+
 .lines line {
     stroke: #999;
     stroke-width: 1.5px;
