@@ -15,14 +15,15 @@ const fallback_data = [
 function render(data) {
     data.forEach(d => { d[VALUE_KEY] = +d[VALUE_KEY]; });
 
-    const width = 850;
-    const height = 440;
+    // const width = 850;
+    const width = document.querySelector(TARGET).getBoundingClientRect().width;
+    const height = 440 * (width / 850);
     const margin = { top: 28, right: 250, bottom: 20, left: 20 };
     const radius = Math.min(width - margin.right - margin.left, height - margin.top - margin.bottom) / 2;
 
     d3.select(TARGET).selectAll("*").remove();
 
-    const svg = d3.select(TARGET).append("svg").attr("width", width).attr("height", height);
+    const svg = d3.select(TARGET).append("svg").attr("width", width).attr("height", height).attr("viewBox", `0 0 ${width} ${height}`);
 
     const g = svg.append("g").attr("transform", `translate(${(width - margin.right) / 2}, ${height / 2 + 8})`);
 
