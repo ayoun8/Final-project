@@ -15,7 +15,6 @@ const fallback_data = [
 function render(data) {
     data.forEach(d => { d[VALUE_KEY] = +d[VALUE_KEY]; });
 
-    // const width = 850;
     const width = document.querySelector(TARGET).getBoundingClientRect().width;
     const height = 440 * (width / 850);
     const margin = { top: 28, right: 250, bottom: 20, left: 20 };

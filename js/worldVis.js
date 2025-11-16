@@ -17,15 +17,18 @@ class WorldVis {
         let vis = this;
 
         // Dimensions
-        vis.margin = {top: 20, right: 20, bottom: 20, left: 20};
+        vis.margin = {top: 20, right: 20, bottom: 90, left: 20};
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
 
         // SVG
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
-            .attr("width", vis.width + vis.margin.left + vis.margin.right)
+            .attr("width", "100%")
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            .attr("transform", `translate (${vis.margin.left}, 0)`);
+            .attr("viewBox", `0 0 ${vis.width + vis.margin.left + vis.margin.right} ${vis.height + vis.margin.top + vis.margin.bottom}`);
+
+        vis.chartG = vis.svg.append("g")
+            .attr("transform", `translate (${vis.margin.left}, ${vis.margin.top})`);
 
         // Title
         // vis.title = vis.svg.append("g")
@@ -49,14 +52,14 @@ class WorldVis {
         vis.world = vis.geoData.features;
 
         // Sphere
-        vis.svg.append("path")
+        vis.chartG.append("path")
             .datum({type: "Sphere"})
             .attr("class", "ocean")
-            .attr("fill", "#7dbeed")
+            .attr("fill", "#ecf7ff")
             .attr("d", vis.path);
 
         // Countries
-        vis.countries = vis.svg.selectAll(".country")
+        vis.countries = vis.chartG.selectAll(".country")
             .data(vis.world)
             .enter().append("path")
             .attr("class", "country")
@@ -68,9 +71,9 @@ class WorldVis {
             .attr("id", "mapTooltip");
 
         // Legend
-        vis.legend = vis.svg.append("g")
+        vis.legend = vis.chartG.append("g")
             .attr("class", "legend")
-            .attr("transform", `translate(${vis.width * 0.35}, ${vis.height - 10})`);
+            .attr("transform", `translate(${vis.width * 0.35}, ${vis.height + 20})`);
 
         vis.legend.selectAll()
             .data(vis.colors)
@@ -92,9 +95,9 @@ class WorldVis {
             .domain([0, 400])
             .range([0, vis.width * 0.2]);
 
-        vis.legendAxisGroup = vis.svg.append("g")
+        vis.legendAxisGroup = vis.chartG.append("g")
             .attr("class", "axis x-axis")
-            .attr("transform", `translate(${vis.width * 0.4}, ${vis.height + 10})`);
+            .attr("transform", `translate(${vis.width * 0.4}, ${vis.height + 40})`);
 
         vis.legendAxis = d3.axisBottom().scale(vis.legendScale)
             .ticks(2);
@@ -142,7 +145,7 @@ class WorldVis {
     updateVis() {
         let vis = this;
 
-        vis.svg.selectAll(".country")
+        vis.chartG.selectAll(".country")
             .attr("fill", function(d) {
                 if (vis.countryInfo[d.properties.name].color) {
                     return vis.countryInfo[d.properties.name].color;

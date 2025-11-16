@@ -38,19 +38,16 @@ function initMainPages(data) {
     });
 
     // Slider
-    d3.select("#time-slider").on("change", () => {
-        let value = d3.select("#time-slider").property("value");
-        let year;
-        if (value == 0) {
-            year = 2008;
-        } else if (value == 1) {
-            year = 2013;
-        } else if (value == 2) {
-            year = 2020;
-        }
+    d3.selectAll(".year-btn").on("click", function() {
+        const year = +this.getAttribute("data-year");
 
         d3.select("#time-slider-label").text("Year: " + year);
 
+        d3.selectAll(".year-btn").classed("active", false);
+        d3.select(this).classed("active", true);
+
         worldVis.moveYear(year);
     });
+    d3.select("#time-slider-label").text("Year: 2008");
+    d3.select('.year-btn[data-year="2008"]').classed("active", true);
 }
