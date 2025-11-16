@@ -9,7 +9,7 @@
 
     const svg = root.append("svg").attr("role", "group").attr("aria-labelledby", "vis2-title vis2-desc");
 
-    svg.append("title").attr("id", "vis2-title").text("Alzheimer’s Distribution by Gender (by Race)");
+    // svg.append("title").attr("id", "vis2-title").text("Alzheimer’s Distribution by Gender (by Race)");
 
     const g = svg.append("g");
     const gx = g.append("g").attr("class", "axis axis--x");
@@ -36,10 +36,11 @@
 
         function render() {
             const width = Math.max(360, container.clientWidth);
-            const height = Math.max(420, container.clientHeight);
+            const height = Math.max(550, container.clientHeight);
             const margin = { top: 28, right: 24, bottom: 56, left: 56 };
             const innerW = width - margin.left - margin.right;
             const innerH = height - margin.top - margin.bottom;
+            const MIN_HEIGHT = 4;
 
             svg.attr("width", width).attr("height", height);
             g.attr("transform", `translate(${margin.left},${margin.top})`);
@@ -78,11 +79,16 @@
                         .style("top", (event.pageY - 28) + "px");
                 })
                 .on("mouseleave", () => tooltip.style("opacity", 0))
-                .transition().duration(1000).attr("y", d => y(d.value)).attr("height", d => innerH - y(d.value));
+                .transition().duration(1000)
+                .attr("y", d => Math.min(y(d.value), innerH - MIN_HEIGHT))
+                .attr("height", d => Math.max(innerH - y(d.value), MIN_HEIGHT));
 
             bars.transition()
-                .duration(1000).attr("x", d => x1(d.key)).attr("y", d => y(d.value))
-                .attr("width", x1.bandwidth()).attr("height", d => innerH - y(d.value)).attr("fill", d => color(d.key));
+                .duration(1000).attr("x", d => x1(d.key))
+                .attr("y", d => Math.min(y(d.value), innerH - MIN_HEIGHT))
+                .attr("width", x1.bandwidth())
+                .attr("height", d => Math.max(innerH - y(d.value), MIN_HEIGHT))
+                .attr("fill", d => color(d.key));
 
             bars.exit().remove();
 
