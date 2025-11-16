@@ -126,7 +126,7 @@
             if (rect.top < viewHeight && rect.bottom > 0) {
                 animated = true;
                 render();
-                window.removeEventListener("scroll", animated);
+                window.removeEventListener("scroll", loaded);
             }
         }
         window.addEventListener("scroll", loaded);
