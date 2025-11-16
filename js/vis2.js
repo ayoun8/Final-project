@@ -78,10 +78,10 @@
                         .style("top", (event.pageY - 28) + "px");
                 })
                 .on("mouseleave", () => tooltip.style("opacity", 0))
-                .transition().duration(600).attr("y", d => y(d.value)).attr("height", d => innerH - y(d.value));
+                .transition().duration(1000).attr("y", d => y(d.value)).attr("height", d => innerH - y(d.value));
 
             bars.transition()
-                .duration(600).attr("x", d => x1(d.key)).attr("y", d => y(d.value))
+                .duration(1000).attr("x", d => x1(d.key)).attr("y", d => y(d.value))
                 .attr("width", x1.bandwidth()).attr("height", d => innerH - y(d.value)).attr("fill", d => color(d.key));
 
             bars.exit().remove();
@@ -115,12 +115,22 @@
                 .attr("fill", "#111").merge(xLbl).attr("x", margin.left + innerW / 2)
                 .attr("y", height - 8).text("Race");
         }
+        let animated = false;
+        function loaded() {
+            if (animated) {
+                return;
+            }
+            const rect = container.getBoundingClientRect();
+            const viewHeight = window.innerHeight || document.documentElement.clientHeight;
 
-        render();
-        window.addEventListener("resize", () => {
-            clearTimeout(render._t);
-            render._t = setTimeout(render, 120);
-        });
+            if (rect.top < viewHeight && rect.bottom > 0) {
+                animated = true;
+                render();
+                window.removeEventListener("scroll", animated);
+            }
+        }
+        window.addEventListener("scroll", loaded);
+        loaded();
     }).catch(err => {
         console.error("Failed to load CSV:", err);
     });
