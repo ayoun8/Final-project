@@ -57,6 +57,17 @@ function render(data) {
             tooltip.style("opacity", 0);
         });
 
+    slices.each(function(d) {
+        this._startArc = {startAngle : d.startAngle, endAngle: d.startAngle};
+    }).attr("d", function(d) {
+        return arc(this._startArc);
+    }).transition().duration(1000).attrTween("d", function(d) {
+        const interpolateArc = d3.interpolate(this._startArc, d);
+        return function(t) {
+            return arc(interpolateArc(t));
+        };
+    });
+
     const legendX = width - margin.right + 20;
     const legendY = margin.top + 10;
     const itemSize = 14;
