@@ -24,7 +24,7 @@ header, #controls {
 }
 
 body {
-    background-color: #2a2a2a;
+    background-color: #1a1a1a;
     color: #e7e7ea;
     font-family: system-ui, sans-serif;
     margin: 0;
@@ -48,7 +48,7 @@ body {
     max-width: 960px;
     margin: 24px auto;
     padding: 20px 12px;
-    background: #46516a;
+    background: #48494b;
     border-radius: 10px;
 }
 
@@ -130,6 +130,34 @@ h1, h2, .caption {
             linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
             url("../img/brain.jpg");
     background-repeat: no-repeat;
+    background-size: 1000px;
+    background-position: center;
+    background-attachment: fixed;
+}
+.scroll-bg-migr{
+    background-image:
+            linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url("../img/MRI_stock.jpg");
+    background-repeat: repeat;
+    background-size: 1000px;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.scroll-bg-map{
+    background-image:
+            linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url("../img/map.webp");
+    background-repeat: repeat;
+    background-size: 1000px;
+    background-position: center;
+    background-attachment: fixed;
+}
+.scroll-bg-fmri{
+    background-image:
+            linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url("../img/fmri_blur_darkened.png");
+    background-repeat: repeat;
     background-size: 1000px;
     background-position: center;
     background-attachment: fixed;

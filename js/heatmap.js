@@ -5,7 +5,7 @@
         this.axes = axesLayer;
         this.cScale = d3.scaleLinear()
             .domain([0.00, 0.20, 0.40])
-            .range(["#243447", "#2FA6B7", "#BFF7E0"])
+            .range(["#ff9e99", "#cc0000", "#300000"])
             .clamp(true);
     };
 
