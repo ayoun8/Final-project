@@ -3,11 +3,12 @@
 }
 
 #chart {
-     position: relative;
-     width: 960px;
-     height: 600px;
-     margin: 0 auto;
- }
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    height: 600px;
+    margin: 0 auto;
+}
 
 header, #controls {
     max-width: 960px;
@@ -40,6 +41,7 @@ body {
     fill: #e7e7ea;
     font-size: 12px;
 }
+
 .x-axis line, .x-axis path, .y-axis line, .y-axis path {
     stroke: #3a3a44;
 }
@@ -53,7 +55,8 @@ body {
 }
 
 .viz-placeholder, #vis1-root, #vis2-root, #vis5-root {
-    width: 960px;
+    width: 100%;
+    max-width: 960px;
     margin: 0 auto;
     display: block;
 }
@@ -65,9 +68,11 @@ h1, h2, .caption {
 #chart canvas {
     z-index: 0;
 }
+
 #chart svg {
     z-index: 1;
 }
+
 #vis1-root svg text {
     fill: #e7e7ea;
 }
@@ -92,6 +97,7 @@ h1, h2, .caption {
     stroke-width: 1.5px;
     opacity: 0.5;
 }
+
 .center-dot {
     fill: #777;
     opacity: 0.5;
@@ -101,10 +107,12 @@ h1, h2, .caption {
     stroke: #222;
     stroke-width: 2;
 }
+
 .nodes .node:hover circle {
     filter: brightness(1.05);
 }
-.nodes .node .label{
+
+.nodes .node .label {
     text-anchor: middle;
     font-weight: 700;
     font-size: 14px;
@@ -117,18 +125,19 @@ h1, h2, .caption {
     font-weight: 700;
     fill: white;
 }
+
 .legend .item-label {
     font-size: 11px;
     fill: white;
 }
+
 .legend .swatch {
     stroke: #aaa;
 }
 
 .scroll-bg {
-    background-image:
-            linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-            url("../img/brain.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../img/brain.jpg");
     background-repeat: no-repeat;
     background-size: 1000px;
     background-position: center;
