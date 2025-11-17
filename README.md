@@ -1,5 +1,5 @@
 # Overview
-We hope you enjoy our project! Thank you so much for all of your hard work and help Tiffany!
+We hope you enjoy our project! Thank you so much for all of your hard work and help, Tiffany!
 
 ## Which parts are libraries
 None
@@ -19,7 +19,6 @@ the genders for female and male. Additionally, with the axis titles, we are able
 for races based on the lengths of the bar charts. Since the bar chart lengths are very easy to
 distinguish it makes it easy for the user to understand the message of the chart. Additionally,
 the tooltip allows the user to better understand and interpret the data.
-
 
 ## Visualization 3: Regional Map - Anne
 The files for this viz are vis3.js, brain.jpg, main.js, and the css file. This viz pulls data from a published estimate
@@ -46,4 +45,4 @@ http://localhost:63342/Final%20project/final%20project/index.html?_ijt=23br573nh
 ## Demo Video Link
 https://youtu.be/tOSLhFC-7rk
 
-## Non-Obvious features
+## Non-Obvious Features

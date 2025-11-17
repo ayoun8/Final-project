@@ -37,7 +37,7 @@ function initMainPages(data) {
         worldVis.sortStat(stat);
     });
 
-    // Slider
+    // Buttons
     d3.selectAll(".year-btn").on("click", function() {
         const year = +this.getAttribute("data-year");
 

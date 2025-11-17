@@ -156,7 +156,7 @@ class WorldVis {
                     d3.select(this)
                         .attr("stroke-width", "2px")
                         .attr("stroke", "black")
-                        .style("fill", "rgba(11,172,23,0.62)");
+                        .attr("fill", "rgba(11,172,23,0.62)");
                     vis.tooltip
                         .style("opacity", 1)
                         .style("position", "absolute")
@@ -175,7 +175,7 @@ class WorldVis {
             .on("mouseout", function(event, d){
                 d3.select(this)
                     .attr("stroke-width", "0px")
-                    .style("fill", d => vis.countryInfo[d.properties.name].color)
+                    .attr("fill", d => vis.countryInfo[d.properties.name].color)
                 vis.tooltip
                     .style("opacity", 0)
                     .style("left", 0)
