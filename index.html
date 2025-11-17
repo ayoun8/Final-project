@@ -5,7 +5,6 @@
     <title>CS 4460 Visualization - Brain Conditions </title>
     <link rel="stylesheet" href="css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
 <body>
 <section class="viz-block scroll-bg-fmri">
@@ -13,10 +12,10 @@
     <div>
         <p> On this page we are going to explore several common brain diseases.
             Brain diseases are conditions that affect the brain, spinal cord, or nerves
-            and disrupt how we think, move, feel, and function. They range from sudden events
-            like stroke to chronic, progressive illnesses such as
-            Alzheimer’s disease, Parkinson’s disease, multiple sclerosis, and epilepsy, as well
-            as infections, tumors, traumatic brain injury, and headache
+            and disrupt how we think, move, feel, and function. They range from sudden, instantaneous events,
+            like strokes, to chronic, progressive illnesses, such as
+            Alzheimer’s disease, Parkinson’s disease, multiple sclerosis, and epilepsy, and also include
+            infections, tumors, traumatic brain injury, and headache
             disorders. Together, these conditions push a major global health burden across all ages,
             contributing to disability, mortality, and long-term caregiving needs. There are
             several factors that contribute to these brain diseases, and we are going to explore them
@@ -29,7 +28,6 @@
 <section id="vis1" class="viz-block">
     <h2>Global Brain Condition Breakdown by Type</h2>
     <div id="vis1-root" class="viz-placeholder"></div>
-    <p class="caption">Global Brain Condition Breakdown Pie Chart</p>
     <p> This chart illustrates the global distribution of major brain conditions by type.
         Migraines account for nearly half of all reported neurological conditions, emphasizing
         their widespread prevalence across populations. Alzheimer’s disease and dementia represent
@@ -45,8 +43,6 @@
 <section id="vis2" class="viz-block">
     <h2>Alzheimer's Distribution by Gender and Race</h2>
     <div id="vis2-root" class="viz-placeholder"></div>
-    <p class="caption">Alzheimer's Race and Gender Bar Graph</p>
-
     <p> This chart illustrates the results for the distribution of Alzheimer’s disease cases by gender and race based on a study.
         White females represent the largest proportion of reported cases, highlighting both the
         higher prevalence among women and the demographic concentration in White populations.
@@ -63,8 +59,6 @@
 <section id="vis3" class="viz-block scroll-bg">
     <h2>Regional Distribution of Alzheimer's</h2>
     <div id="vis3-root" class="viz-placeholder" style="height:420px"></div>
-    <p class="caption"></p>
-
     <p> The chart shows the distribution of Alzheimer's among the 4 major U.S. regions. Circle size shows Alzheimer's
         cases in thousands,
         and color shows the regional prevalence (% of adults 65+ with Alzheimer's). The South has the highest total
@@ -99,8 +93,6 @@
             <span id="time-slider-label" class="slider-label">Year: 2008</span>
         </div>
     </div>
-    <p>This map shows the MS distribution around the world</p>
-
     <p>
         This world map illustrates the global distribution of Multiple Sclerosis (MS), with
         color intensity representing varying prevalence rates across regions. Higher rates of MS
@@ -113,7 +105,7 @@
     </p>
 </section>
 
-<section class="viz-block scroll-bg-migr">
+<section class="viz-block">
     <p>For our last look, we invite you to explore how different lifestyle and demographic factors relate to the
         number of people experiencing chronic migraines. The data covers U.S. citizens from 2017 to 2023 and includes
         information about marital status and smoking habits in a grid of mental unwellness by age of around 27,000
@@ -223,6 +215,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4"></script>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>

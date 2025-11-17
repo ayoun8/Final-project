@@ -1,7 +1,7 @@
-# Overview
+## Overview
 We hope you enjoy our project! Thank you so much for all of your hard work and help, Tiffany!
 
-## Which parts are libraries
+## Libraries
 None
 
 ## Visualization 1: Pie Chart - Namrata

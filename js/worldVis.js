@@ -40,8 +40,12 @@ class WorldVis {
         //     .attr("text-anchor", "middle");
 
         // Projection of countries
-        vis.projection = d3.geoMercator()
-            .scale(Math.min(100, Math.min(vis.width, vis.height) * 0.15))
+        // List of options:
+        // Baker dinomic, Eckert III, Fahey pseudocylindrical, Hufnagel pseudocylindrical, Kavrayskiy VII, Miller cylindrical
+        // Natural Earth, Natural Earth II, Robinson, Times, Van der Grinten III, Wagner VI, Winkel tripel
+        // Eckert 3 has the largest width-height ratio of them, allowing for a larger map without making the section feel too large.
+        vis.projection = d3.geoEckert3()
+            .scale(Math.min(vis.width, vis.height) * 0.4)
             .translate([vis.width / 2, vis.height / 2]);
 
         // Map path
@@ -55,7 +59,7 @@ class WorldVis {
         vis.chartG.append("path")
             .datum({type: "Sphere"})
             .attr("class", "ocean")
-            .attr("fill", "#ecf7ff")
+            .attr("fill", "#badeff")
             .attr("d", vis.path);
 
         // Countries
@@ -124,10 +128,11 @@ class WorldVis {
         vis.world.forEach(d => {
             let countryIndex = countryNames.indexOf(d.properties.name);
             if (countryIndex !== -1 && vis.countriesData[countryIndex][statYear] !== -1) {
+                // console.log(vis.countriesData[countryIndex][statYear]);
                 vis.countryInfo[d.properties.name] = {
                     name: d.properties.name,
                     value: vis.countriesData[countryIndex][statYear],
-                    color: vis.colors[Math.floor(vis.countriesData[countryIndex][statYear] / 100)],
+                    color: (this.stat == "MeanAgeofOnset") ? vis.colors[Math.floor(vis.countriesData[countryIndex][statYear] / 12.5)] : ((this.stat == "Prevalence") ? vis.colors[Math.floor(vis.countriesData[countryIndex][statYear] / 100)] : vis.colors[Math.floor(vis.countriesData[countryIndex][statYear] / 6)]),
                 }
             } else {
                 vis.countryInfo[d.properties.name] = {
@@ -165,7 +170,7 @@ class WorldVis {
 
                     vis.tooltip
                         .html(`
-                         <div style="border: thin solid grey; border-radius: 5px; background: #232323; padding: 20px">
+                         <div style="background: #232323; padding: 3px 10px; color: #ececec">
                              <h4>${vis.countryInfo[d.properties.name].name}<h4>
                              <h5>${(vis.stat == "MeanAgeofOnset" ? "Age:" : "Cases per 100,000:")} ${vis.countryInfo[d.properties.name].value}</h5>                       
                          </div>
@@ -182,6 +187,19 @@ class WorldVis {
                     .style("top", 0)
                     .html(``);
             });
+
+        if (this.stat == "MeanAgeofOnset") {
+            vis.legendScale.domain([0, 50]);
+            vis.legendAxis.tickValues([0, 25, 50]);
+        } else if (this.stat == "Prevalence") {
+            vis.legendScale.domain([0, 400]);
+            vis.legendAxis.tickValues([0, 200, 400]);
+        } else {
+            vis.legendScale.domain([0, 24]);
+            vis.legendAxis.tickValues([0, 12, 24]);
+        }
+
+        vis.legendAxisGroup.call(vis.legendAxis);
     }
 
     sortStat(stat) {
