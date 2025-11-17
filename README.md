@@ -21,7 +21,7 @@ distinguish it makes it easy for the user to understand the message of the chart
 the tooltip allows the user to better understand and interpret the data.
 
 ## Visualization 3: Regional Map - Anne
-The files for this viz are vis3.js, brain.jpg, main.js, and the css file. This viz pulls data from a published estimate
+The files for this visualization are vis3.js, brain.jpg, and main.js. This visualization pulls data from a published estimate
 of Alzheimer's disease dementia in the 50 U.S. states and 3142 counties, which uses data from the Chicago Health and Aging
 Project and the 2020 bridged-race population estimates to calculate how many adults who are 65+ are living with Alzheimer's
 and what percent of older adults are affected in each state. I grouped the data into the 4 major U.S regions and each region
@@ -30,14 +30,17 @@ shows the regional prevalence (percent of adults 65+ with Alzheimer's). The tool
 in that region by number of cases, so you can see how, for example, the Southern region have a the largest share of total cases.
 
 ## Visualization 4: World Map - Aaron
-
+The files for this visualization are worldMain.js, worldVis.js, countriesMSData.csv, and countries.geo.json.
+This visualization pulls data from the National MS Society, which has collected surveys from around the world to form 3 different data sets of multiple sclerosis based on years: 2008, 2013, and 2020/2022. I then simplified the data down to 3 different statistics: prevalence (number of total cases, standardized per 100,000 people), incidence (number of new cases, standardized per 100,000 people), and mean age of onset (average age that multiple sclerosis sets in).
+The user can both click on the dropdown menu above the map to select a statistic and a button below the map to select a different year, and the colors in the map will change accordingly based on the countries' data.
+There is a tooltip that appears when hovering over a country that tells the user of the specific country's data for that statistic.
 
 ## Visualization 5: Heatmap - Kirito
-The files for this viz are heatmap.js, axes.js, aggregator.js, and MigraineMain.js. This viz pulls data from nHanes which is
+The files for this visualization are heatmap.js, axes.js, aggregator.js, and MigraineMain.js. This visualization pulls data from nHanes, which is
 broad U.S. data that includes a lot of lifestyle and health data of U.S. citizens. It uses this to make a map that charts
 some conditions onto a grid by age and PHQ-9 (mental unwellness) score. So you can see how older, unhappy people might be
 impacted by chronic migraines more and then add in that they smoke or are divorced. The color is darker if more of the
-respondents who fit the conditions reported chronic migraines as well
+respondents who fit the conditions reported chronic migraines as well.
 
 ## Project Website
 http://localhost:63342/Final%20project/final%20project/index.html?_ijt=23br573nhqt5gt4r9857abaueu&_ij_reload=RELOAD_ON_SAVE
@@ -46,3 +49,4 @@ http://localhost:63342/Final%20project/final%20project/index.html?_ijt=23br573nh
 https://youtu.be/tOSLhFC-7rk
 
 ## Non-Obvious Features
+None
