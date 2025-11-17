@@ -17,7 +17,7 @@ function render(data) {
 
     const width = document.querySelector(TARGET).getBoundingClientRect().width;
     const height = 440 * (width / 850);
-    const margin = { top: 28, right: 250, bottom: 20, left: 20 };
+    const margin = { top: 28, right: 320, bottom: 20, left: 20 };
     const radius = Math.min(width - margin.right - margin.left, height - margin.top - margin.bottom) / 2;
 
     d3.select(TARGET).selectAll("*").remove();

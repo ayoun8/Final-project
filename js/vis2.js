@@ -53,7 +53,7 @@
             gx.attr("transform", `translate(0,${innerH})`).call(xAxis);
             gy.call(yAxis);
 
-            const yLbl = gy.selectAll(".y-label").data(["Count"]);
+            const yLbl = gy.selectAll(".y-label").data(["# Cases"]);
             yLbl.enter().append("text").attr("class", "y-label").attr("fill", "white")
                 .attr("text-anchor", "end").attr("x", -10).attr("y", -10).text(d => d);
 
