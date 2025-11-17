@@ -4,10 +4,21 @@ We hope you enjoy our project! Thank you so much for all of your hard work and h
 ## Which parts are libraries
 None
 
-## Visualization 1
+## Visualization 1: Pie Chart - Namrata
+The files for this visualization are vis1.js and brain_disease_distribution.csv to illustrate the global
+distribution of major neurological conditions. I used different colors for each disease/condition
+to highlight its impact on the overall distribution of brain conditions and make sure it is
+easy to visually distinguish the different conditions. Additionally, there is a tooltip to
+highlight and specify the percentages for specific conditions to better understand the exact number
+breakdowns.
 
-
-## Visualization 2
+## Visualization 2: Bar Chart - Namrata
+The files for this visualization are vis2.js and alzheimers_gender_data.csv. Through this data,
+I wanted to focus on both the racial and gender factors. I used two different colors to distinguish 
+the genders for female and male. Additionally, with the axis titles, we are able to see the differnces
+for races based on the lengths of the bar charts. Since the bar chart lengths are very easy to
+distinguish it makes it easy for the user to understand the message of the chart. Additionally,
+the tooltip allows the user to better understand and interpret the data.
 
 
 ## Visualization 3: Regional Map - Anne
@@ -33,6 +44,6 @@ respondents who fit the conditions reported chronic migraines as well
 http://localhost:63342/Final%20project/final%20project/index.html?_ijt=23br573nhqt5gt4r9857abaueu&_ij_reload=RELOAD_ON_SAVE
 
 ## Demo Video Link
-
+https://youtu.be/tOSLhFC-7rk
 
 ## Non-Obvious features
