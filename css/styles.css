@@ -209,3 +209,82 @@ h1, h2, .caption {
 .year-btn.active{
     background: #cd2929;
 }
+
+.cube-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 220px 0 220px;
+    perspective: 900px;
+    gap: 30px;
+}
+.cube-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cube {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    transform-style: preserve-3d;
+    transform: rotateX(-10deg) rotateY(0deg);
+    transition: transform 0.8s ease;
+}
+
+.cube .cube-face {
+    width: 220px;
+    height: 220px;
+    padding: 14px;
+    font-size: 12px;
+    position: absolute;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background: rgba(145, 23, 41, 0.85);
+}
+
+.cube .cube-front h3 {
+    margin: 0;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.cube-front {
+    transform: translateZ(110px);
+}
+.cube-back {
+    transform: rotateY(180deg) translateZ(110px);
+}
+.cube-right {
+    transform: rotateY(90deg) translateZ(110px);
+}
+.cube-left {
+    transform: rotateY(-90deg) translateZ(110px);
+}
+.cube-top {
+    transform: rotateX(90deg) translateZ(110px);
+}
+.cube-bottom {
+    transform: rotateX(-90deg) translateZ(110px);
+}
+
+.cube-btn{
+    font-size: 12px;
+    background: #999999;
+    color: #111111;
+    padding: 6px 10px;
+    border: 1px solid #75575f;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.cube-btn:hover{
+    background: #bc4262;
+    transform: translateY(-1px);
+}
