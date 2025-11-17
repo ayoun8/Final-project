@@ -39,10 +39,10 @@ There is a tooltip that appears when hovering over a country that tells the user
 The files for this visualization are heatmap.js, axes.js, aggregator.js, and MigraineMain.js. This visualization pulls data from nHanes, which is broad U.S. data that includes a lot of lifestyle and health data of U.S. citizens. It uses this to make a map that charts some conditions onto a grid by age and PHQ-9 (mental unwellness) score. So you can see how older, unhappy people might be impacted by chronic migraines more and then add in that they smoke or are divorced. The color is darker if more of the respondents who fit the conditions reported chronic migraines as well.
 
 ## Project Website
-http://localhost:63342/Final%20project/final%20project/index.html?_ijt=23br573nhqt5gt4r9857abaueu&_ij_reload=RELOAD_ON_SAVE
+https://ayoun8.github.io/Final-project/
 
 ## Demo Video Link
-https://youtu.be/tOSLhFC-7rk
+https://youtu.be/STjAxdyjWPY
 
 ## Non-Obvious Features
 None
